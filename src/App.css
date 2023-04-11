@@ -94,6 +94,8 @@ h1 {
     margin-bottom: 1rem;
     cursor: pointer;
     transition: all .5s;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .Todo p {
@@ -125,4 +127,9 @@ h1 {
     h1 {
         font-size: 1.30rem;
     }
+
+    /* .Todo {
+        flex-direction: column;
+        gap: 5px;
+    } */
 }
