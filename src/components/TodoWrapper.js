@@ -35,19 +35,22 @@ function TodoWrapper() {
     };
     const editTask = (task, id) => {
         setTodos(todos.map(todo => todo.id === id ? {
-            ...todo, task, isEditing: !todo.isEditing, completed: false} : todo));
+            ...todo, task, isEditing: !todo.isEditing, completed: false
+        } : todo));
     };
     return (
         <div className='TodoWrapper'>
             <h1>What's Your Tasks Today?</h1>
             <TodoForm addTodo={addTodo} />
-            {todos.map((todo, index) => {
-                return todo.isEditing ? (
-                    <EditTodoForm editTodo={editTask} key={index} task={todo} />
-                ) : (
-                    <Todo task={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo} />
-                );
-            })}
+            <div className='todo-holder'>
+                {todos.map((todo, index) => {
+                    return todo.isEditing ? (
+                        <EditTodoForm editTodo={editTask} key={index} task={todo} />
+                    ) : (
+                        <Todo task={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo} />
+                    );
+                })}
+            </div>
         </div>
     );
 }
